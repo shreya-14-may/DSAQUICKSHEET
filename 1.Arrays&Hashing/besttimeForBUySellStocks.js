@@ -10,3 +10,22 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
 
 */
 
+
+var maxProfit = function(prices) {
+    //kadane's algo
+
+    let profit =0;
+    let buyingPrice = prices[0];
+    let n = prices.length;
+
+    for(let i=0; i<n; i++){
+        if(prices[i] < buyingPrice){
+            buyingPrice = prices[i]
+        }
+        if(prices[i]- buyingPrice > profit){
+            profit = prices[i] - buyingPrice
+        }
+    }
+
+    return profit;
+};
