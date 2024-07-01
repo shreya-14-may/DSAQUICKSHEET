@@ -2,12 +2,8 @@
 
 
 
-class Solution {
-    /**
-     * @param {string[]} strs
-     * @returns {string}
-     */
-    encode(strs) {
+
+    var encode = (strs) => {
         let res = '';
 
         for(let s of strs){
@@ -20,7 +16,7 @@ class Solution {
      * @param {string} str
      * @returns {string[]}
      */
-    decode(str) {
+    var decode = (str) =>{
         let res =[];
         let i=0;
         while(i < str.length){
@@ -29,6 +25,11 @@ class Solution {
             while(str[j]!= '#'){
                 j++
             }
+            // console.log(str)
+            console.log(i)
+            console.log(j)
+            // console.log(str.substring(1,2))
+            // console.log(parseInt(str.substring(i,j),10))
             let length = parseInt(str.substring(i,j),10)
             i = j+1;
             j = i + length;
@@ -37,4 +38,8 @@ class Solution {
         }
         return res;
     }
-}
+
+
+    // console.log(encode(["neet","code","love","you"]));
+    const encoded = encode(["neet","code","love","you"]);
+    console.log(decode(encoded));
